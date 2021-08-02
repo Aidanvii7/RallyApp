@@ -4,7 +4,7 @@ This is a an example of how to use a modified `NavHost` that allows a degree of 
 The original source code is from the
 [Navigation in Jetpack Compose Codelab](https://developer.android.com/codelabs/jetpack-compose-navigation).
 
-[ModdedNavHost.kt](app/src/main/java/com/example/compose/rally/ModdedNavHost.kt) is a modified version of `NavHost` from the navigation compose library, though specifically the [hardcoded `Crossfade`](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/navigation/navigation-compose/src/main/java/androidx/navigation/compose/NavHost.kt#131) has been replaced with a more flexible `AnimatedContent`. The overloaded `NavHost` composables take a `NavTransition` that offer some flexibility.
+[ModdedNavHost.kt](app/src/main/java/com/example/compose/rally/ModdedNavHost.kt) is a modified version of `NavHost` from the navigation compose library, though specifically the [hardcoded `Crossfade`](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/navigation/navigation-compose/src/main/java/androidx/navigation/compose/NavHost.kt#131) has been replaced with a more flexible `AnimatedContent`. The overloaded [`NavHost`](app/src/main/java/com/example/compose/rally/ModdedNavHost.kt#L71) composables take a [`NavTransition`](app/src/main/java/com/example/compose/rally/ModdedNavHost.kt#L26) that offer some flexibility. Other than that, it is effectively the same.
 
 To briefly go over the API modification, lets say you define your routes with an enum such as:
 
@@ -27,7 +27,7 @@ enum class Route {
             get() = this?.destination?.route?.substringBefore('/')
     }
 ```
-Then all you have to add to your NavHost is a `NavTransition`, optionally using a built in `NavTransition` factory such as `horizontalSlideFade`:
+Then all you have to add to your NavHost is a [`NavTransition`](app/src/main/java/com/example/compose/rally/ModdedNavHost.kt#L26), optionally using a built in factory such as [`NavTransition.horizontalSlideFade`](app/src/main/java/com/example/compose/rally/ModdedNavHost.kt#L44):
 ```
 NavHost(
         navController = navController,
