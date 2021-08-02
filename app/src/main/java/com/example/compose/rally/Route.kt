@@ -43,10 +43,6 @@ enum class Route(val icon: ImageVector) {
             }
 
         private val NavBackStackEntry?.routeName: String?
-            get() {
-                if (this == null) return null
-                val routeName: String? = destination.route?.substringBefore('/')
-                return routeName
-            }
+            get() = this?.destination?.route?.substringBefore('/')
     }
 }
