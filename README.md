@@ -11,7 +11,7 @@ To briefly go over the API modification, lets say you define your routes with an
 ```
 enum class Route {
     
-    SCREEN_A, SCREEN_B;
+    A, B;
     
     companion object {
         fun from(navBackStackEntry: NavBackStackEntry?): Route? =
